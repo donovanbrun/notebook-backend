@@ -1,7 +1,9 @@
 package com.donovan.note.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document("Users")
 public class User {
 
     @Id

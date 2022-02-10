@@ -1,8 +1,6 @@
 package com.donovan.note.service;
 
-import com.donovan.note.model.Directory;
 import com.donovan.note.model.Note;
-import com.donovan.note.model.SubDirectory;
 import com.donovan.note.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class NoteService {
+public class NoteService { // TODO implement overload security with note's character limit (like 4-5k)
 
     private final NoteRepository noteRepository;
 
@@ -20,64 +18,33 @@ public class NoteService {
         this.noteRepository = noteRepository;
     }
 
-    public boolean exist(String username) {
+    /*public boolean exist(String username) {
         return this.noteRepository.existsById(username);
-    }
+    }*/
 
-    public void createDir(String username, String path, String dirname) throws Exception {
-
-        //TODO check sub directories and try to do something
-        Optional<Directory> optRoot = noteRepository.findById(username);
-
-        if (optRoot.isPresent()) {
-            Directory root = optRoot.get();
-            // TEMPORARY !!!!! don't compute path
-            root.addDirectory(new SubDirectory(dirname));
-            this.noteRepository.save(root);
-        }
-        else {
-            Directory dir = new Directory(username);
-            noteRepository.insert(dir);
-        }
-    }
-
-    public List<Directory> getNotes() {
+    public List<Note> getNotes() {
         return noteRepository.findAll();
     }
 
-    public Optional<Directory> getNote(String username) {
-        return this.noteRepository.findById(username);
+    public List<Note> getNotesByUsername(String username) {
+        return this.noteRepository.findNotesByUsername(username);
     }
 
-    public void createNote(String username, String path, String name, String content) throws Exception {
+    public void createNote(String username, String name, String content) throws Exception {
+        // TODO check if note already exist, and check params conformity
+        // TODO use exception
+        this.noteRepository.save(new Note(username, name, content));
+    }
 
-        Optional<Directory> optRoot = noteRepository.findById(username);
+    public void saveNote(String username, String name, String content) {
+        // TODO use mongo aggregation
 
-        if (optRoot.isPresent()) {
-            Directory root = optRoot.get();
-            ///////////////////////////////////////////////////////////////////////////////
-            // TEMPORARY !!!!! don't compute path
-            Note note = null;
-            for (Note n : root.getNotes()) {
-                if (n.getName().equals(name)) {
-                    note = n;
-                    break;
-                }
+        for (Note n : this.noteRepository.findAll()) {
+            if (n.getUsername().equals(username) && n.getName().equals(name)) {
+                n.setContent(content);
+                this.noteRepository.save(n);
+                break;
             }
-
-            if (note != null) {
-                note.setContent(content);
-            }
-            else {
-                root.addNote(new Note(username, name, content));
-            }
-
-            this.noteRepository.save(root);
-            ///////////////////////////////////////////////////////////////////////////////
-        }
-        else {
-            Directory dir = new Directory(username);
-            noteRepository.insert(dir);
         }
     }
 }

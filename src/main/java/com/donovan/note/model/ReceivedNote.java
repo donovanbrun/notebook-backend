@@ -4,13 +4,11 @@ package com.donovan.note.model;
 public class ReceivedNote {
 
     private String username;
-    private String path;
     private String name;
     private String content;
 
-    public ReceivedNote(String username, String path, String name, String content) {
+    public ReceivedNote(String username, String name, String content) {
         this.username = username;
-        this.path = path;
         this.name = name;
         this.content = content;
     }
@@ -21,14 +19,6 @@ public class ReceivedNote {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public String getName() {

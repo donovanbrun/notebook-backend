@@ -1,21 +1,27 @@
 package com.donovan.note.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("Notes")
 public class Note {
 
+    @Id
+    private Long id;
     private String username;
     private String name;
     private String content;
 
     public Note(String username, String name, String content) {
-        //this.id = (long) (Math.random() * Long.MAX_VALUE);
+        this.id = (long) (Math.random() * Long.MAX_VALUE);
         this.username = username;
         this.name = name;
         this.content = content;
     }
 
-    /*public long getId() {
+    public long getId() {
         return id;
-    }*/
+    }
 
     public String getUsername() {
         return username;
