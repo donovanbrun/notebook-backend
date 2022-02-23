@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("Notes")
 public class Note {
 
+    // TODO add tags
+
     @Id
     private Long id;
     private String username;
