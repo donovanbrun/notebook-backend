@@ -1,7 +1,7 @@
-package com.donovan.note.service;
+package com.donovan.notebook.service;
 
-import com.donovan.note.model.User;
-import com.donovan.note.repository.UserRepository;
+import com.donovan.notebook.model.User;
+import com.donovan.notebook.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

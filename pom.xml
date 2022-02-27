@@ -9,12 +9,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.donovan</groupId>
-	<artifactId>quicknotes</artifactId>
+	<artifactId>notebook</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>QuickNotes</name>
+	<name>NoteBook</name>
 	<description>Cloud notes editor</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
