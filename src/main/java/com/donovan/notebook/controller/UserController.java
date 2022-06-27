@@ -1,8 +1,8 @@
-package com.donovan.note.controller;
+package com.donovan.notebook.controller;
 
-import com.donovan.note.model.User;
-import com.donovan.note.service.NoteService;
-import com.donovan.note.service.UserService;
+import com.donovan.notebook.model.User;
+import com.donovan.notebook.service.NoteService;
+import com.donovan.notebook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,6 @@
-package com.donovan.note.repository;
+package com.donovan.notebook.repository;
 
-import com.donovan.note.model.Note;
-import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import com.donovan.notebook.model.Note;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

@@ -1,12 +1,13 @@
-package com.donovan.note.service;
+package com.donovan.notebook.service;
 
-import com.donovan.note.model.Note;
-import com.donovan.note.repository.NoteRepository;
+import com.donovan.notebook.model.Note;
+import com.donovan.notebook.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Service
 public class NoteService { // TODO implement overload security with note's character limit (like 4-5k)
@@ -27,7 +28,14 @@ public class NoteService { // TODO implement overload security with note's chara
     }
 
     public List<Note> getNotesByUsername(String username) {
-        return this.noteRepository.findNotesByUsername(username);
+        // TODO use the commented code
+        //return this.noteRepository.findNotesByUsername(username);
+        return this.noteRepository.findAll().stream().filter(new Predicate<Note>() {
+            @Override
+            public boolean test(Note note) {
+                return note.getUsername().equals(username);
+            }
+        }).collect(Collectors.toList());
     }
 
     public void createNote(String username, String name, String content) throws Exception {

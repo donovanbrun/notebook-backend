@@ -1,6 +1,6 @@
-package com.donovan.note.repository;
+package com.donovan.notebook.repository;
 
-import com.donovan.note.model.User;
+import com.donovan.notebook.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, String> {

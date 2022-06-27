@@ -1,4 +1,4 @@
-package com.donovan.note.model;
+package com.donovan.notebook.model;
 
 // Used to transform json structure received form saving a note into this class
 public class ReceivedNote {

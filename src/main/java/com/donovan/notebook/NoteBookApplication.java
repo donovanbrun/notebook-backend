@@ -1,12 +1,12 @@
-package com.donovan.note;
+package com.donovan.notebook;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NotesApplication {
+public class NoteBookApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NotesApplication.class, args);
+		SpringApplication.run(NoteBookApplication.class, args);
 	}
 }

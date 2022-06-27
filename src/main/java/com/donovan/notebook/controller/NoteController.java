@@ -1,8 +1,8 @@
-package com.donovan.note.controller;
+package com.donovan.notebook.controller;
 
-import com.donovan.note.model.Note;
-import com.donovan.note.model.ReceivedNote;
-import com.donovan.note.service.NoteService;
+import com.donovan.notebook.model.Note;
+import com.donovan.notebook.model.ReceivedNote;
+import com.donovan.notebook.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +21,7 @@ public class NoteController {
         this.noteService = noteService;
     }
 
+    // TODO Remove this route after dev
     @GetMapping()
     public List<Note> getNotes() {
         return noteService.getNotes();

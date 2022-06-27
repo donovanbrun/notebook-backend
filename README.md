@@ -1,3 +1,3 @@
-# QuickNotes Backend
+# NoteBook Backend
 
-Spring boot application to store little notes in cloud, with user manager.
+Spring boot application to store notes in cloud, with user manager.
